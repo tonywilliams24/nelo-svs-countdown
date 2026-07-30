@@ -85,4 +85,55 @@
     <img src="img/IMG_3046.jpg" alt="Discord Character">
   </div>
   
-  <div
+  <div id="timer">LOADING...</div>
+
+  <div class="joke-box">
+    <div id="joke">Click the button for a dad joke while you wait!</div>
+    <button onclick="getJoke()">👉 GET DAD JOKE 👈</button>
+  </div>
+
+  <script>
+    // Target date: August 10, 2026 00:00 UTC
+    const target = new Date("2026-08-10T00:00:00Z").getTime();
+    
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = target - now;
+      
+      if (diff <= 0) {
+        document.getElementById("timer").innerText = "IT IS TIME FOR SVS!!!";
+        return;
+      }
+      
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById("timer").innerText = `⚠️ ${d}D : ${h}H : ${m}M : ${s}S ⚠️`;
+    }, 1000);
+
+    const jokes = [
+      "Why don't scientists trust atoms? Because they make up everything!",
+      "What do you call a factory that makes okay products? A satisfactory.",
+      "How do you organize a space party? You planet.",
+      "Why did the scarecrow win an award? Because he was outstanding in his field!",
+      "I'm reading a book on anti-gravity. I just can't put it down!",
+      "What do you call a fake noodle? An impasta.",
+      "Why do mushrooms get invited to all the parties? Because they are fun-ghis!",
+      "Want to hear a joke about construction? I'm still working on it."
+    ];
+
+    let lastIndex = -1;
+    function getJoke() {
+      let index = Math.floor(Math.random() * jokes.length);
+      while(index === lastIndex) {
+        index = Math.floor(Math.random() * jokes.length);
+      }
+      lastIndex = index;
+      document.getElementById("joke").innerText = jokes[index];
+    }
+  </script>
+
+</body>
+</html>
