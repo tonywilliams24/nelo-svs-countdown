@@ -3,10 +3,6 @@
 <head>
   <title>!!! COUNTDOWN TO SVS FOR NELO !!!</title>
   <style>
-    @keyframes blink {
-      0%, 100% { opacity: 1; background-color: #ff00ff; color: #00ffff; }
-      50% { opacity: 0.4; background-color: #00ff00; color: #ff0000; }
-    }
     @keyframes shake {
       0% { transform: translate(1px, 1px) rotate(0deg); }
       10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -21,51 +17,61 @@
       100% { transform: translate(1px, -2px) rotate(-1deg); }
     }
     body { 
-      background-color: #ff00ff; 
-      color: #00ff00; 
+      background-color: #d4f0ff; /* Icy blue background */
+      color: #333; 
       font-family: "Comic Sans MS", "Chalkboard SE", sans-serif; 
       text-align: center; 
       padding: 20px;
       overflow-x: hidden;
-      animation: blink 0.2s infinite;
     }
     h1 { 
-      font-size: 7rem; 
+      font-size: 5rem; 
       text-transform: uppercase;
       letter-spacing: 5px;
       margin: 0;
-      text-shadow: 5px 5px #000, -5px -5px #fff, 7px 7px #ff0000;
-      animation: shake 0.1s infinite;
+      color: #0055ff;
+      text-shadow: 3px 3px #fff;
+      animation: shake 0.5s infinite;
     }
     #timer { 
-      font-size: 9rem; 
+      font-size: 6rem; 
       font-weight: bold;
-      background: yellow;
+      background: white;
       color: black;
-      border: 15px dashed red;
+      border: 10px solid #0055ff;
       padding: 20px;
       margin: 30px auto;
       display: inline-block;
-      width: 90%;
-      box-shadow: 10px 10px 0px blue;
+      width: 80%;
+      box-shadow: 5px 5px 0px gray;
     }
     .joke-box {
-      background: black;
-      color: #fff;
-      border: 10px ridge cyan;
+      background: #fff;
+      color: #000;
+      border: 5px solid #0055ff;
       padding: 20px;
       margin-top: 40px;
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
     button {
-      font-size: 3rem;
-      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      font-size: 2rem;
+      background: #0055ff;
       color: white;
       font-weight: bold;
-      padding: 20px 40px;
-      border: 5px solid white;
+      padding: 15px 30px;
+      border: none;
       cursor: pointer;
       margin-top: 20px;
+    }
+    .profile-images {
+      margin: 20px 0;
+    }
+    .profile-images img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 15px;
+      border: 5px solid white;
     }
   </style>
 </head>
@@ -73,55 +79,10 @@
 
   <h1>!!! Countdown to SVS for Nelo !!!</h1>
   
-  <div id="timer">LOADING IMMINENT DOOMSTAY...</div>
-
-  <div class="joke-box">
-    <div id="joke">Click the button for terrible jokes while you wait!</div>
-    <button onclick="getJoke()">👉 GET DAD JOKE 👈</button>
+  <div class="profile-images">
+    <!-- Replace with actual filenames from your img folder -->
+    <img src="img/IMG_3045.jpg" alt="Cat PFP">
+    <img src="img/IMG_3046.jpg" alt="Discord Character">
   </div>
-
-  <script>
-    // Target date: August 10, 2026 00:00 UTC
-    const target = new Date("2026-08-10T00:00:00Z").getTime();
-    
-    setInterval(() => {
-      const now = new Date().getTime();
-      const diff = target - now;
-      
-      if (diff <= 0) {
-        document.getElementById("timer").innerText = "IT IS TIME FOR SVS!!!";
-        return;
-      }
-      
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const s = Math.floor((diff % (1000 * 60)) / 1000);
-      
-      document.getElementById("timer").innerText = `⚠️ ${d}D : ${h}H : ${m}M : ${s}S ⚠️`;
-    }, 1000);
-
-    const jokes = [
-      "Why don't scientists trust atoms? Because they make up everything!",
-      "What do you call a factory that makes okay products? A satisfactory.",
-      "How do you organize a space party? You planet.",
-      "Why did the scarecrow win an award? Because he was outstanding in his field!",
-      "I m reading a book on anti-gravity. I just can't put it down!",
-      "What do you call a fake noodle? An impasta.",
-      "Why do mushrooms get invited to all the parties? Because they are fun-ghis!",
-      "Want to hear a joke about construction? I'm still working on it."
-    ];
-
-    let lastIndex = -1;
-    function getJoke() {
-      let index = Math.floor(Math.random() * jokes.length);
-      while(index === lastIndex) {
-        index = Math.floor(Math.random() * jokes.length);
-      }
-      lastIndex = index;
-      document.getElementById("joke").innerText = jokes[index];
-    }
-  </script>
-
-</body>
-</html>
+  
+  <div
